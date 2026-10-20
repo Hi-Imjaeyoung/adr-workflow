@@ -11,6 +11,8 @@
 
 ID는 순차적으로 부여합니다. ADR이 기각되거나 대체되더라도 ID를 재사용하지 않습니다.
 
+이 패턴(`ADR-NNN-*.md`)에 맞는 파일만 ADR로 취급합니다. 이 디렉터리에 다른 문서를 두어도 ID 계산에는 영향이 없습니다.
+
 ## 상태
 
 - `Proposed`: 논의 중이며 최종 결정이 없음.
@@ -18,6 +20,17 @@ ID는 순차적으로 부여합니다. ADR이 기각되거나 대체되더라도
 - `Rejected`: 제안을 검토한 뒤 기각함.
 - `Superseded`: 이후의 ADR이 이 결정을 대체함.
 - `Deprecated`: 더 이상 적용되지 않음.
+
+### 허용되는 상태 전이
+
+| 전이 | 명령 |
+|---|---|
+| `Proposed` → `Accepted` | `/adr decide <ADR-ID>` |
+| `Proposed` → `Rejected` | `/adr status <ADR-ID> Rejected` |
+| `Accepted` → `Superseded` | `/adr status <ADR-ID> Superseded <대체 ADR-ID>` |
+| `Accepted` → `Deprecated` | `/adr status <ADR-ID> Deprecated` |
+
+상태가 바뀔 때마다 문서의 이력 섹션에 한 줄을 추가합니다.
 
 ## 작성 가이드
 
@@ -30,4 +43,4 @@ ID는 순차적으로 부여합니다. ADR이 기각되거나 대체되더라도
 
 ## 템플릿
 
-재사용 가능한 템플릿은 `.claude/skills/adr/references/adr-template.md`에서 관리합니다.
+템플릿은 `.claude/skills/adr/references/adr-template.md` 한 곳에서만 관리합니다. 직접 ADR을 작성할 때도 이 파일을 복사해 사용하세요.

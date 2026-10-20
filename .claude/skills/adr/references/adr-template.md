@@ -4,6 +4,7 @@
 - **날짜:** YYYY-MM-DD
 - **결정 책임자:** <사람/팀>
 - **관련 항목:** <이슈, PR, 다른 ADR 링크>
+- **대체 관계:** 없음 <!-- 예: Supersedes ADR-NNN / Superseded by ADR-NNN -->
 
 ## 1. 배경 및 문제
 

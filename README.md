@@ -10,6 +10,7 @@ Claude Code로 아키텍처 결정 기록(ADR, Architecture Decision Record)을 
 - `/adr options <ADR-ID>` — 가능한 대안과 트레이드오프를 비교합니다.
 - `/adr review <ADR-ID>` — 가정, 근거, 완결성을 비판적으로 검토합니다.
 - `/adr decide <ADR-ID>` — 사람이 승인한 결정과 그 결과를 기록합니다.
+- `/adr status <ADR-ID> <Rejected|Superseded|Deprecated> [대체 ADR-ID]` — 기각, 대체, 폐기 상태 전이를 기록합니다.
 - `/adr list` — ADR 목록과 상태를 보여 줍니다.
 
 이 워크플로는 **사실, 가정, 가설, 측정된 근거를 명확히 구분**하도록 설계되었습니다. Claude는 대안 분석을 도울 수 있지만, 최종 결정은 사람이 내립니다.
@@ -47,7 +48,7 @@ Claude Code 스킬은 재사용 가능한 지침을 제공하고 슬래시 커�
 docs/
   adr/
     README.md
-    000-template.md
+    ADR-001-....md   # /adr make로 생성
 ```
 
 ## 상태 모델
@@ -58,7 +59,7 @@ docs/
 - `Superseded` — 이후의 ADR이 이 결정을 대체했습니다.
 - `Deprecated` — 더 이상 적용되지 않는 결정입니다.
 
-이력을 몰래 고쳐 쓰지 마세요. 결정이 바뀌면 새 ADR을 만들고 이전 기록과 연결합니다.
+이력을 몰래 고쳐 쓰지 마세요. 결정이 바뀌면 새 ADR을 만들고 이전 기록과 연결합니다. 허용되는 상태 전이는 `docs/adr/README.md`를 참고하세요.
 
 ## Git 워크플로
 
