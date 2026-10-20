@@ -1,89 +1,89 @@
 ---
 name: adr
-description: Create, compare, review, and record Architecture Decision Records (ADRs). Use when the user invokes /adr or asks to document a technical decision.
+description: 아키텍처 결정 기록(ADR)을 작성, 비교, 검토, 기록합니다. 사용자가 /adr을 호출하거나 기술적 결정을 문서화해 달라고 요청할 때 사용합니다.
 argument-hint: "make <topic> | options <ADR-ID> | review <ADR-ID> | decide <ADR-ID> | list"
 ---
 
-# ADR workflow
+# ADR 워크플로
 
-You manage ADR documents in `docs/adr/`. Follow the user's requested subcommand from `$ARGUMENTS`.
+`docs/adr/`의 ADR 문서를 관리합니다. `$ARGUMENTS`로 전달된 사용자의 서브커맨드를 따릅니다.
 
-## Global rules
+## 공통 규칙
 
-- Begin with the problem and desired outcome; do not assume the user's proposed solution is correct.
-- Explore the repository and relevant docs before making claims about existing architecture.
-- Clearly label information as:
-  - **Fact**: confirmed by repository, requirements, or supplied evidence.
-  - **Assumption**: plausible but not confirmed.
-  - **Hypothesis**: a prediction that needs validation.
-  - **Measured evidence**: backed by an actual test, benchmark, query plan, or operational observation.
-- Never invent traffic, data volume, latency, cost, or benchmark figures.
-- Consider the status quo as an option when it is viable.
-- Compare trade-offs, operational cost, migration cost, security, data integrity, performance, and future change cost where relevant.
-- Do not make a final decision for the user. `/adr decide` records a decision only after explicitly confirming the user's choice.
-- Do not run destructive commands, deploy, or commit changes unless the user separately requests and confirms the action.
-- Keep ADRs concise, specific, and understandable without the chat transcript.
-- Use the template in `references/adr-template.md` and the checklist in `references/decision-checklist.md`.
-- Preserve history: do not silently rewrite an accepted ADR into a different decision. Create a new ADR and mark the previous one as superseded when appropriate.
+- 문제와 원하는 결과에서 출발합니다. 사용자가 제안한 해결책이 옳다고 가정하지 않습니다.
+- 기존 아키텍처에 대해 주장하기 전에 저장소와 관련 문서를 먼저 살펴봅니다.
+- 정보를 다음과 같이 명확히 구분해 표시합니다.
+  - **사실(Fact)**: 저장소, 요구사항, 제공된 근거로 확인된 내용.
+  - **가정(Assumption)**: 그럴듯하지만 확인되지 않은 내용.
+  - **가설(Hypothesis)**: 검증이 필요한 예측.
+  - **측정된 근거(Measured evidence)**: 실제 테스트, 벤치마크, 쿼리 플랜, 운영 관찰로 뒷받침되는 내용.
+- 트래픽, 데이터량, 지연 시간, 비용, 벤치마크 수치를 절대 지어내지 않습니다.
+- 현상 유지가 실현 가능하다면 대안으로 고려합니다.
+- 해당되는 경우 트레이드오프, 운영 비용, 마이그레이션 비용, 보안, 데이터 무결성, 성능, 향후 변경 비용을 비교합니다.
+- 사용자 대신 최종 결정을 내리지 않습니다. `/adr decide`는 사용자의 선택을 명시적으로 확인한 뒤에만 결정을 기록합니다.
+- 사용자가 별도로 요청하고 확인하지 않는 한 파괴적인 명령 실행, 배포, 커밋을 하지 않습니다.
+- ADR은 간결하고 구체적이며, 대화 기록 없이도 이해할 수 있게 작성합니다.
+- `references/adr-template.md`의 템플릿과 `references/decision-checklist.md`의 체크리스트를 사용합니다.
+- 이력을 보존합니다. 승인된 ADR을 다른 결정으로 몰래 고쳐 쓰지 않습니다. 필요하면 새 ADR을 만들고 이전 ADR을 superseded로 표시합니다.
 
-## Mode and file-writing behavior
+## 모드와 파일 작성 동작
 
-For analysis-heavy work, recommend that the user enter Claude Code Plan Mode using `/plan` before invoking this skill. A Skill does not itself guarantee a switch of the interactive session's permission mode. If not in Plan Mode, first analyze and present the proposed plan; ask before writing files. Do not claim that Plan Mode is active unless the user has confirmed it or the interface indicates it.
+분석 비중이 큰 작업이라면, 이 스킬을 호출하기 전에 `/plan`으로 Claude Code Plan Mode에 들어가도록 사용자에게 권장합니다. 스킬 자체가 대화형 세션의 권한 모드 전환을 보장하지는 않습니다. Plan Mode가 아니라면 먼저 분석하고 계획을 제시한 뒤, 파일을 쓰기 전에 확인을 구합니다. 사용자가 확인했거나 인터페이스에 표시되지 않는 한 Plan Mode가 활성화되어 있다고 주장하지 않습니다.
 
-## Subcommands
+## 서브커맨드
 
 ### `make <topic>`
 
-1. Read `docs/adr/README.md` and the ADR template.
-2. Inspect relevant project files and existing ADRs. Do not scan unrelated files indiscriminately.
-3. Restate the problem, desired outcome, stakeholders, constraints, and known non-goals.
-4. Separate confirmed facts from assumptions and unanswered questions.
-5. If a critical detail is missing, ask one focused question at a time. Otherwise draft a proposed ADR.
-6. Assign the next available sequential ID (`ADR-001`, `ADR-002`, ...). Check existing files to avoid collisions.
-7. Draft the ADR with status `Proposed`. Do not choose a final option merely because the user mentioned one.
-8. Show the planned file path and a concise summary. Ask before writing if the current mode or user request does not clearly authorize writing.
+1. `docs/adr/README.md`와 ADR 템플릿을 읽습니다.
+2. 관련 프로젝트 파일과 기존 ADR을 살펴봅니다. 관련 없는 파일을 무분별하게 훑지 않습니다.
+3. 문제, 원하는 결과, 이해관계자, 제약 조건, 알려진 비목표(non-goals)를 다시 정리합니다.
+4. 확인된 사실과 가정, 답이 없는 질문을 구분합니다.
+5. 중요한 정보가 빠져 있다면 한 번에 하나씩 핵심 질문을 합니다. 그렇지 않으면 ADR 초안을 작성합니다.
+6. 사용 가능한 다음 순번 ID(`ADR-001`, `ADR-002`, ...)를 부여합니다. 충돌을 피하기 위해 기존 파일을 확인합니다.
+7. 상태를 `Proposed`로 하여 ADR 초안을 작성합니다. 사용자가 언급했다는 이유만으로 최종 대안을 선택하지 않습니다.
+8. 생성할 파일 경로와 간단한 요약을 보여 줍니다. 현재 모드나 사용자 요청이 파일 작성을 명확히 허용하지 않으면 작성 전에 확인을 구합니다.
 
 ### `options <ADR-ID>`
 
-1. Read the target ADR and relevant project context.
-2. Identify at least two viable options when alternatives genuinely exist. Include the status quo when relevant.
-3. For each option, document: intent, advantages, costs, risks, implementation/migration effort, and conditions where it fits.
-4. Compare the options against the ADR's decision drivers. Explain when a factor is a hard constraint versus a preference.
-5. Identify missing evidence and propose the cheapest useful validation (for example, query-plan inspection, a small benchmark, or a requirements check).
-6. Avoid false precision and arbitrary weighted scores unless the user requests them and agrees on weights.
-7. Update the ADR's options section only after presenting the analysis; do not mark any option Accepted.
+1. 대상 ADR과 관련 프로젝트 맥락을 읽습니다.
+2. 실제로 대안이 존재한다면 최소 두 가지 실현 가능한 대안을 찾습니다. 해당되면 현상 유지도 포함합니다.
+3. 각 대안에 대해 의도, 장점, 비용, 위험, 구현/마이그레이션 노력, 적합한 조건을 기록합니다.
+4. ADR의 결정 요인(decision drivers)에 비추어 대안을 비교합니다. 각 요인이 절대 제약인지 선호 사항인지 설명합니다.
+5. 부족한 근거를 찾아내고, 가장 저렴하면서 유용한 검증 방법(예: 쿼리 플랜 확인, 소규모 벤치마크, 요구사항 확인)을 제안합니다.
+6. 사용자가 요청하고 가중치에 동의하지 않는 한, 허위 정밀도나 임의의 가중 점수를 피합니다.
+7. 분석을 제시한 뒤에만 ADR의 대안 섹션을 수정합니다. 어떤 대안도 Accepted로 표시하지 않습니다.
 
 ### `review <ADR-ID>`
 
-Review the ADR as a critical peer reviewer. Check:
-- Is the problem framed independently from the proposed solution?
-- Are requirements, facts, assumptions, and hypotheses distinguished?
-- Are meaningful alternatives considered, including the status quo?
-- Are trade-offs and rejected alternatives explained?
-- Are data integrity, security, operations, performance, migration, and maintainability relevant and covered?
-- Are claims supported by repository evidence, documentation, or measurements?
-- Are consequences, validation steps, and revisit conditions actionable?
-- Is the decision reversible, and what is the cost of reversal?
-Return findings by severity: Blocker, Important, Minor. Suggest edits but do not silently change the decision.
+비판적인 동료 리뷰어로서 ADR을 검토합니다. 다음을 확인합니다.
+- 문제가 제안된 해결책과 독립적으로 정의되어 있는가?
+- 요구사항, 사실, 가정, 가설이 구분되어 있는가?
+- 현상 유지를 포함해 의미 있는 대안을 검토했는가?
+- 트레이드오프와 기각된 대안이 설명되어 있는가?
+- 데이터 무결성, 보안, 운영, 성능, 마이그레이션, 유지보수성이 관련 있다면 다뤄졌는가?
+- 주장이 저장소 근거, 문서, 측정으로 뒷받침되는가?
+- 결과, 검증 단계, 재검토 조건이 실행 가능한가?
+- 결정을 되돌릴 수 있는가, 되돌리는 비용은 얼마인가?
+발견 사항을 심각도별(Blocker, Important, Minor)로 반환합니다. 수정을 제안하되 결정을 몰래 바꾸지 않습니다.
 
 ### `decide <ADR-ID>`
 
-1. Read the ADR and summarize the options, key trade-offs, unresolved risks, and recommendation (if one exists).
-2. Ask the user to explicitly select an option and confirm any conditions.
-3. Only after confirmation, update status to `Accepted`, record the chosen option and rationale, document consequences and validation, and identify any superseded ADRs.
-4. If the user has not chosen, leave status as `Proposed`.
-5. Do not commit changes automatically.
+1. ADR을 읽고 대안, 주요 트레이드오프, 해결되지 않은 위험, (있다면) 권장안을 요약합니다.
+2. 사용자에게 대안을 명시적으로 선택하고 조건을 확인해 달라고 요청합니다.
+3. 확인을 받은 뒤에만 상태를 `Accepted`로 바꾸고, 선택한 대안과 근거를 기록하며, 결과와 검증 계획을 문서화하고, 대체되는(superseded) ADR이 있으면 명시합니다.
+4. 사용자가 선택하지 않았다면 상태를 `Proposed`로 유지합니다.
+5. 변경 사항을 자동으로 커밋하지 않습니다.
 
 ### `list`
 
-List ADR files with ID, title, status, and a one-line summary. If a status cannot be established from the document, label it `Unknown` rather than guessing.
+ADR 파일을 ID, 제목, 상태, 한 줄 요약과 함께 나열합니다. 문서에서 상태를 확인할 수 없으면 추측하지 말고 `Unknown`으로 표시합니다.
 
-## Output expectations
+## 출력 기대 사항
 
-At the end of each operation, report:
-- files read or changed,
-- what is confirmed versus assumed,
-- open questions or risks,
-- the next useful step.
+각 작업이 끝나면 다음을 보고합니다.
+- 읽거나 변경한 파일,
+- 확인된 내용과 가정한 내용,
+- 열린 질문이나 위험,
+- 다음에 하면 좋은 단계.
 
-Keep the response concise. Do not repeat the full ADR unless requested.
+응답은 간결하게 유지합니다. 요청이 없다면 ADR 전체를 반복하지 않습니다.

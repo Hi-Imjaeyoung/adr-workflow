@@ -1,45 +1,45 @@
-# ADR-XXX: <Decision title>
+# ADR-XXX: <결정 제목>
 
-- **Status:** Proposed
-- **Date:** YYYY-MM-DD
-- **Decision owner:** <person/team>
+- **상태:** Proposed
+- **날짜:** YYYY-MM-DD
+- **결정 책임자:** <사람/팀>
 
-## Context and problem
-<Describe the problem without assuming the solution.>
+## 배경 및 문제
+<해결책을 가정하지 말고 문제를 설명하세요.>
 
-## Requirements and constraints
-### Confirmed facts
+## 요구사항 및 제약 조건
+### 확인된 사실
 - 
 
-### Assumptions and hypotheses
+### 가정 및 가설
 - 
 
-## Decision drivers
+## 결정 요인
 - 
 
-## Options considered
-### Option A
-- Approach:
-- Benefits:
-- Costs and risks:
+## 검토한 대안
+### 대안 A
+- 접근 방식:
+- 장점:
+- 비용 및 위험:
 
-### Option B
-- Approach:
-- Benefits:
-- Costs and risks:
+### 대안 B
+- 접근 방식:
+- 장점:
+- 비용 및 위험:
 
-## Decision
-- Chosen option:
-- Rationale:
-- Why not the alternatives:
+## 결정
+- 선택한 대안:
+- 근거:
+- 다른 대안을 선택하지 않은 이유:
 
-## Consequences
-- Benefits:
-- Accepted risks:
-- Follow-up work:
+## 결과
+- 기대 효과:
+- 감수하는 위험:
+- 후속 작업:
 
-## Validation plan
+## 검증 계획
 - 
 
-## Revisit conditions
+## 재검토 조건
 - 

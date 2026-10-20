@@ -1,33 +1,33 @@
-# Architecture Decision Records
+# 아키텍처 결정 기록(ADR)
 
-This directory stores durable records of important technical decisions.
+이 디렉터리에는 중요한 기술적 결정을 오래 보존할 기록으로 저장합니다.
 
-## Naming
+## 파일 이름 규칙
 
-Use `ADR-NNN-short-kebab-case-title.md`, for example:
+`ADR-NNN-short-kebab-case-title.md` 형식을 사용합니다. 예:
 
 - `ADR-001-content-storage-model.md`
 - `ADR-002-authentication-session-strategy.md`
 
-Use sequential IDs. Never reuse an ID after an ADR is rejected or superseded.
+ID는 순차적으로 부여합니다. ADR이 기각되거나 대체되더라도 ID를 재사용하지 않습니다.
 
-## Status
+## 상태
 
-- `Proposed`: under discussion; no final decision.
-- `Accepted`: decision owner approved the choice.
-- `Rejected`: the proposal was considered and rejected.
-- `Superseded`: a later ADR replaces this decision.
-- `Deprecated`: no longer applicable.
+- `Proposed`: 논의 중이며 최종 결정이 없음.
+- `Accepted`: 결정 책임자가 선택을 승인함.
+- `Rejected`: 제안을 검토한 뒤 기각함.
+- `Superseded`: 이후의 ADR이 이 결정을 대체함.
+- `Deprecated`: 더 이상 적용되지 않음.
 
-## Guidelines
+## 작성 가이드
 
-- Write for a future teammate who was not part of the original discussion.
-- Record why a choice was made, not just what was implemented.
-- Distinguish confirmed facts from assumptions and measurements.
-- Keep the record concise and link to issues/PRs for implementation detail.
-- When an accepted decision changes materially, create a new ADR and link both records.
-- Do not store credentials, secrets, personal data, or sensitive production details in ADRs.
+- 원래 논의에 참여하지 않은 미래의 팀원을 위해 작성합니다.
+- 무엇을 구현했는지뿐 아니라 왜 그렇게 선택했는지를 기록합니다.
+- 확인된 사실을 가정 및 측정값과 구분합니다.
+- 기록은 간결하게 유지하고, 구현 세부 사항은 이슈/PR 링크로 연결합니다.
+- 승인된 결정이 실질적으로 바뀌면 새 ADR을 만들고 두 기록을 서로 연결합니다.
+- ADR에 자격 증명, 비밀 값, 개인 정보, 민감한 운영 환경 정보를 저장하지 않습니다.
 
-## Template
+## 템플릿
 
-The reusable template is maintained at `.claude/skills/adr/references/adr-template.md`.
+재사용 가능한 템플릿은 `.claude/skills/adr/references/adr-template.md`에서 관리합니다.

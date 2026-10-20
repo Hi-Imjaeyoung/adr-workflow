@@ -1,34 +1,34 @@
-# ADR decision checklist
+# ADR 결정 체크리스트
 
-Use only criteria relevant to the decision. Do not force every category into every ADR.
+결정과 관련 있는 기준만 사용하세요. 모든 항목을 모든 ADR에 억지로 적용하지 마세요.
 
-## Problem framing
-- [ ] The problem is described independently of the preferred solution.
-- [ ] Desired outcomes and non-goals are explicit.
-- [ ] Stakeholders and constraints are identified where relevant.
+## 문제 정의
+- [ ] 문제가 선호하는 해결책과 독립적으로 설명되어 있다.
+- [ ] 원하는 결과와 비목표가 명시되어 있다.
+- [ ] 해당되는 경우 이해관계자와 제약 조건이 식별되어 있다.
 
-## Evidence quality
-- [ ] Facts are distinguishable from assumptions and hypotheses.
-- [ ] Repository-specific claims are grounded in inspected files.
-- [ ] Performance/cost claims are measured or clearly labeled as estimates.
-- [ ] Unknowns are recorded instead of guessed.
+## 근거의 질
+- [ ] 사실이 가정 및 가설과 구분된다.
+- [ ] 저장소 관련 주장은 실제로 확인한 파일에 근거한다.
+- [ ] 성능/비용 주장은 측정되었거나 추정치임이 명확히 표시되어 있다.
+- [ ] 모르는 것은 추측하지 않고 기록되어 있다.
 
-## Options and trade-offs
-- [ ] At least two viable options are considered when meaningful.
-- [ ] The status quo is considered where viable.
-- [ ] Benefits and costs are both documented.
-- [ ] Rejected alternatives have explicit reasons.
-- [ ] Migration and reversal costs are considered.
+## 대안과 트레이드오프
+- [ ] 의미가 있는 경우 최소 두 가지 실현 가능한 대안을 검토했다.
+- [ ] 실현 가능한 경우 현상 유지를 검토했다.
+- [ ] 장점과 비용이 모두 기록되어 있다.
+- [ ] 기각된 대안에 명시적인 이유가 있다.
+- [ ] 마이그레이션 비용과 되돌리는 비용을 고려했다.
 
-## Technical quality
-- [ ] Domain boundaries and lifecycle are considered.
-- [ ] Data integrity and security are considered where relevant.
-- [ ] Query patterns, operational concerns, and performance are considered where relevant.
-- [ ] Maintainability and future change are considered without speculative overengineering.
+## 기술적 품질
+- [ ] 도메인 경계와 생명주기를 고려했다.
+- [ ] 해당되는 경우 데이터 무결성과 보안을 고려했다.
+- [ ] 해당되는 경우 쿼리 패턴, 운영 문제, 성능을 고려했다.
+- [ ] 추측성 과잉 설계 없이 유지보수성과 향후 변경을 고려했다.
 
-## Decision quality
-- [ ] Decision drivers are prioritized; hard constraints are distinguished from preferences.
-- [ ] The decision rationale follows from the drivers and evidence.
-- [ ] Consequences and follow-up work are explicit.
-- [ ] Validation and revisit conditions are actionable.
-- [ ] A human decision owner approved the final decision.
+## 결정의 질
+- [ ] 결정 요인의 우선순위가 정해져 있고, 절대 제약과 선호 사항이 구분되어 있다.
+- [ ] 결정 근거가 결정 요인과 근거로부터 도출된다.
+- [ ] 결과와 후속 작업이 명시되어 있다.
+- [ ] 검증 계획과 재검토 조건이 실행 가능하다.
+- [ ] 사람인 결정 책임자가 최종 결정을 승인했다.

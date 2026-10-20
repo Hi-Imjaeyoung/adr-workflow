@@ -1,87 +1,87 @@
-# ADR-XXX: <Decision title>
+# ADR-XXX: <결정 제목>
 
-- **Status:** Proposed
-- **Date:** YYYY-MM-DD
-- **Decision owner:** <person/team>
-- **Related:** <links to issues, PRs, or other ADRs>
+- **상태:** Proposed
+- **날짜:** YYYY-MM-DD
+- **결정 책임자:** <사람/팀>
+- **관련 항목:** <이슈, PR, 다른 ADR 링크>
 
-## 1. Context and problem
+## 1. 배경 및 문제
 
-What problem needs a decision? Describe the desired outcome without assuming a solution.
+어떤 문제에 결정이 필요한가요? 해결책을 가정하지 말고 원하는 결과를 설명하세요.
 
-## 2. Requirements and constraints
+## 2. 요구사항 및 제약 조건
 
-### Confirmed facts
+### 확인된 사실
 - 
 
-### Assumptions and hypotheses
+### 가정 및 가설
 - 
 
-### Constraints / non-goals
+### 제약 조건 / 비목표
 - 
 
-## 3. Decision drivers
+## 3. 결정 요인
 
-List the criteria that matter for this decision and explain why.
+이 결정에 중요한 기준과 그 이유를 나열하세요.
 
-- Domain responsibility and lifecycle:
-- Data integrity and constraints:
-- Query/access patterns and performance:
-- Changeability and migration:
-- Security and operations:
-- Delivery time and complexity:
+- 도메인 책임과 생명주기:
+- 데이터 무결성과 제약 조건:
+- 쿼리/접근 패턴과 성능:
+- 변경 용이성과 마이그레이션:
+- 보안과 운영:
+- 개발 기간과 복잡도:
 
-## 4. Options considered
+## 4. 검토한 대안
 
-### Option A — <name>
-- **Approach:**
-- **Benefits:**
-- **Costs and risks:**
-- **Best fit when:**
+### 대안 A — <이름>
+- **접근 방식:**
+- **장점:**
+- **비용 및 위험:**
+- **적합한 경우:**
 
-### Option B — <name>
-- **Approach:**
-- **Benefits:**
-- **Costs and risks:**
-- **Best fit when:**
+### 대안 B — <이름>
+- **접근 방식:**
+- **장점:**
+- **비용 및 위험:**
+- **적합한 경우:**
 
-### Option C — <name> (optional)
-- **Approach:**
-- **Benefits:**
-- **Costs and risks:**
-- **Best fit when:**
+### 대안 C — <이름> (선택)
+- **접근 방식:**
+- **장점:**
+- **비용 및 위험:**
+- **적합한 경우:**
 
-## 5. Decision
+## 5. 결정
 
-- **Chosen option:**
-- **Rationale:**
-- **Why not the alternatives:**
+- **선택한 대안:**
+- **근거:**
+- **다른 대안을 선택하지 않은 이유:**
 
-> Do not fill this section as Accepted until the decision owner explicitly confirms the choice.
+> 결정 책임자가 선택을 명시적으로 확인하기 전에는 이 섹션을 Accepted로 채우지 마세요.
 
-## 6. Consequences
+## 6. 결과
 
-### Expected benefits
+### 기대 효과
 - 
 
-### Accepted trade-offs / risks
+### 감수하는 트레이드오프 / 위험
 - 
 
-### Follow-up work
+### 후속 작업
 - 
 
-## 7. Validation plan
+## 7. 검증 계획
 
-What evidence would confirm the assumptions? Define a practical test, inspection, or observation.
-
-- 
-
-## 8. Revisit conditions
-
-What concrete change or observation would justify reopening this decision?
+어떤 근거가 가정을 확인해 줄까요? 실용적인 테스트, 점검, 관찰 방법을 정의하세요.
 
 - 
 
-## 9. History
+## 8. 재검토 조건
 
-- YYYY-MM-DD — Proposed — Initial draft.
+어떤 구체적인 변화나 관찰이 있으면 이 결정을 다시 열어야 할까요?
+
+- 
+
+## 9. 이력
+
+- YYYY-MM-DD — Proposed — 초안 작성.
