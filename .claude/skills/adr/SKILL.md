@@ -2,6 +2,7 @@
 name: adr
 description: 아키텍처 결정 기록(ADR)을 작성, 비교, 검토, 기록합니다. 사용자가 /adr을 호출하거나 기술적 결정을 문서화해 달라고 요청할 때 사용합니다.
 argument-hint: "make <topic> | options <ADR-ID> | review <ADR-ID> | decide <ADR-ID> | status <ADR-ID> <Rejected|Superseded|Deprecated> [ADR-ID] | list"
+allowed-tools: Read, Glob, Grep
 ---
 
 # ADR 워크플로
@@ -24,6 +25,7 @@ argument-hint: "make <topic> | options <ADR-ID> | review <ADR-ID> | decide <ADR-
 - 사용자가 별도로 요청하고 확인하지 않는 한 파괴적인 명령 실행, 배포, 커밋을 하지 않습니다.
 - ADR은 간결하고 구체적이며, 대화 기록 없이도 이해할 수 있게 작성합니다.
 - `references/adr-template.md`의 템플릿과 `references/decision-checklist.md`의 체크리스트를 사용합니다.
+- 작성 수준과 문체는 `references/example-adr.md`를 참고합니다. 예시의 내용(주제, 대안, 결정)을 다른 ADR에 옮겨 쓰지 않습니다.
 - 이력을 보존합니다. 승인된 ADR을 다른 결정으로 몰래 고쳐 쓰지 않습니다. 필요하면 새 ADR을 만들고 이전 ADR을 superseded로 표시합니다.
 
 ## 파일 이름과 ID 규칙

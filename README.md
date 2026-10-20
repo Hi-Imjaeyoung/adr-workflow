@@ -33,6 +33,8 @@ Claude Code로 아키텍처 결정 기록(ADR, Architecture Decision Record)을 
 
 Claude Code 스킬은 재사용 가능한 지침을 제공하고 슬래시 커맨드로 호출할 수 있지만, 스킬 자체가 대화형 세션의 권한 모드를 바꾼다고 가정해서는 안 됩니다. 실제로 읽기 전용인 계획 단계가 필요하다면 `/plan`(또는 사용 중인 버전의 해당 단축키)으로 Plan Mode에 들어간 뒤 `/adr make ...` 또는 `/adr options ...`를 실행하세요.
 
+스킬 frontmatter의 `allowed-tools`에는 읽기 전용 도구(`Read`, `Glob`, `Grep`)만 지정되어 있습니다. 이 설정은 해당 도구를 권한 확인 없이 쓰게 해 줄 뿐 다른 도구를 막지는 않으므로, 파일 작성과 수정은 평소처럼 권한 확인을 거칩니다.
+
 이 스킬은 Claude가 편집 전에 먼저 계획을 세우고, 최종 결정을 기록하기 전에 확인을 구하도록 지시합니다. 이는 보안 경계가 아니라 워크플로 가이드로 받아들이세요. 사용하는 Claude Code 버전에서 실제 동작을 확인하세요.
 
 ## 권장 저장소 구조
@@ -45,6 +47,7 @@ Claude Code 스킬은 재사용 가능한 지침을 제공하고 슬래시 커�
       references/
         adr-template.md
         decision-checklist.md
+        example-adr.md   # 작성 예시 (참고용)
 docs/
   adr/
     README.md
